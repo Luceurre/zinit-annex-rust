@@ -83,18 +83,10 @@ if (( ${+ICE[rustup]} )) {
                 print -P -- "%F{38}rust annex: %F{154}Running the rustup installer...%f"
                 bin/rustup-init \
                     -y \
-                    --no-modify-path \
-                    --component cargo clippy rustc rust-fmt rust-std \
-                    --default-toolchain nightly \
-                    --profile minimal \
                 |& command egrep '(installing|installed)'
             } else {
                 bin/rustup-init \
                     -y \
-                    --no-modify-path \
-                    --component cargo clippy rustc rust-fmt rust-std \
-                    --default-toolchain nightly \
-                    --profile minimal \
                 &> /dev/null
             }
         ) || \
